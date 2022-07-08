@@ -4,33 +4,43 @@
 
 using namespace std;
 
-int main(){
-	
-int user_int;
-int answer = 0;
-    do {
-        cout << "Enter an integer: ";
-        cin >> user_int;
+int main()
+{
+    cout << "(Enter 0 to show the final answer)\n";
+    int integerInput;
+    int finalAnswer = 0;
+    int count = 1;
 
-        if (user_int > 0)
+    do
+    {
+        // read integer
+        cout << "Enter Integer #" << count++ << " : ";
+        cin >> integerInput;
+
+        if (integerInput > 0) //check if positive
         {
-            if (user_int > 10){
-                answer = user_int % 10;
+            if (integerInput > 10) //check if greater than 10
+            {
+                //add modulus remainder of 10
+                finalAnswer += integerInput % 10;
             }
 
-            if (user_int % 2 == 0){
-                answer = answer + 2;
+            if (integerInput % 2 == 0) //if even
+            {
+                finalAnswer += 2; //add 2
             }
-            else{
-                answer = answer + 1;
+            else //if odd
+            {
+                finalAnswer += 1; //add 1
             }
 
-            if (user_int % 3 == 0){
-                answer = answer + 3;
+            if (integerInput % 3 == 0) //if divisible by 3
+            {
+                finalAnswer += 3; // add 3
             }
         }
+    } while (integerInput); // loop until user enters 0
 
-    } while(user_int);
-	
-	cout << "The answer is: " << answer;
+    cout << "\n"
+         << "Final Answer : " << finalAnswer;
 }

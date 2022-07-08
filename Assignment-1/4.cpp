@@ -4,48 +4,72 @@
 
 using namespace std;
 
-int main(){
-	cout << "Enter the num1: ";
-	double num1;
-	cin >> num1;
+int main()
+{
+    cout << "Simple Calculator\n"
+         << setfill('=') << setw(18) << "\n";
 
-    cout << "Enter the num2: ";
-	double num2;
-	cin >> num2;
+    // read number 1
+    cout << "Enter Number 1 : ";
+    double number1;
+    cin >> number1;
 
-    cout << "Enter the operation (+ - * / %): ";
-	char op;
-	cin >> op;
+    // read number 2
+    cout << "Enter Number 2 : ";
+    double number2;
+    cin >> number2;
 
-    switch (op)
+    // read operator symbol
+    cout << "Enter the symbol for operation ( + | - | * | / | % ) : ";
+    char operatorSymbol;
+    cin >> operatorSymbol;
+
+    // print answer
+    cout << "\n"
+         << "Answer\n"
+         << setfill('=') << setw(7) << "\n";
+
+    switch (operatorSymbol)
     {
-    case '+':
-        cout << num1 << " + " << num2 << " = " << (num1 + num2);
+    case '+': // addition
+        cout << number1 << " + " << number2 << " = " << (number1 + number2);
         break;
-    case '-':
-        cout << num1 << " - " << num2 << " = " << (num1 - num2);
+    case '-': // subtraction
+        cout << number1 << " - " << number2 << " = " << (number1 - number2);
         break;
-    case '*':
-        cout << num1 << " * " << num2 << " = " << (num1 * num2);
+    case '*': // multiplication
+        cout << number1 << " * " << number2 << " = " << (number1 * number2);
         break;
-    case '/':
-        cout << num1 << " / " << num2 << " = " << (num1 / num2);
-        break;
-    case '%':
+    case '/': // division
+    {
+        if (number2 != 0) // check if divisor is not 0
         {
-            int num1Int = (int)num1;
-            int num2Int = (int)num2;
-            bool both_integer = (num1 == num1Int) && (num2 == num2Int);
-            if (both_integer){
-                cout << num1Int << " % " << num2Int << " = " << (num1Int % num2Int);
-            }
-            else{
-                cout << "both the numbers must be integers.";
-            }
+            cout << number1 << " / " << number2 << " = " << (number1 / number2);
         }
-        break;
-    default:
-        cout << "Invalid operator!";
+        else
+        {
+            cout << "Divisor (Number 2) cannot be zer0!";
+        }
+    }
+    break;
+    case '%': // modulus
+    {
+        int number1IntValue = (int)number1; // convert number 1 to int
+        int number2IntValue = (int)number2; // convert number 2 to int
+        // check if both the numbers are integers
+        bool isInteger = (number1 == number1IntValue) && (number2 == number2IntValue);
+        if (isInteger)
+        {
+            cout << number1IntValue << " % " << number2IntValue << " = " << (number1IntValue % number2IntValue);
+        }
+        else
+        {
+            cout << "Numbers must be integers to perform Modulus operation!";
+        }
+    }
+    break;
+    default: // other
+        cout << operatorSymbol << " - Invalid operator symbol!";
         break;
     }
 }

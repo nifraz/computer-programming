@@ -4,15 +4,27 @@
 
 using namespace std;
 
-int main(){
-	int students = 45;
+int main()
+{
+	// perform calculations
+	int totalStudents = 45;
 	int boys = 25;
-	int girls = students - boys;
-	
-	int passed_students = students * 80 / 100;
-	int failed_girls = 2;
-	int passed_girls = girls - failed_girls;
-	int passed_boys = passed_students - passed_girls;
-	
-	cout << "Boys passed the exam: " << passed_boys;
+	int girls = totalStudents - boys;
+	int passedStudents = totalStudents * 80 / 100;
+	int failedStudents = totalStudents - passedStudents;
+	int failedGirls = 2;
+	int passedGirls = girls - failedGirls;
+	int passedBoys = passedStudents - passedGirls;
+	int failedBoys = boys - passedBoys;
+
+	// print results
+	cout << "Total Students : " << totalStudents << "\n"
+		 << "\t> passed : " << passedStudents << "\n"
+		 << "\t> failed : " << failedStudents << "\n"
+		 << "Total Boys : " << boys << "\n"
+		 << "\t> passed : " << passedBoys << "\n"
+		 << "\t> failed : " << failedBoys << "\n"
+		 << "Total Girls : " << girls << "\n"
+		 << "\t> passed : " << passedGirls << "\n"
+		 << "\t> failed : " << failedGirls << "\n";
 }
