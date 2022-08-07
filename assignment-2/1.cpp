@@ -6,11 +6,11 @@ using namespace std;
 
 int main()
 {
-    int my_array[4][3] = {0};
+	int my_array[4][3] = {0};
 	int tmp = 0;
 	int count = 0;
 	int sum = 0;
-    
+
 	for (int i = 0; i < 4 && tmp != -1; i++)
 	{
 		for (int j = 0; j < 3; j++)
@@ -18,18 +18,19 @@ int main()
 			cout << "User Integer: ";
 			cin >> tmp;
 
-			if(tmp == -1){
+			if (tmp == -1)
+			{
 				break;
 			}
 
 			my_array[i][j] = tmp;
-			count ++;
+			count++;
 			sum = sum + tmp;
 		}
 	}
 
 	cout << "Count: " << count << endl;
-	
+
 	int max, min;
 	max = min = my_array[0][0];
 

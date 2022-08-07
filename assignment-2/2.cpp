@@ -8,19 +8,19 @@ int main()
 {
     char s[1000];
     cout << "User String: ";
-	cin.getline(s, 1000);
+    cin.getline(s, 1000);
 
     int count = 0;
     bool space = true;
-    
-	for (int i = 0; i < 1000; i++)
-	{
+
+    for (int i = 0; i < 1000; i++)
+    {
         if (s[i] == '\0')
         {
             break;
         }
-        
-		if (s[i] == ' ')
+
+        if (s[i] == ' ')
         {
             space = true;
         }
@@ -29,7 +29,7 @@ int main()
             count = count + 1;
             space = false;
         }
-	}
+    }
 
     cout << "Words: " << count << endl;
 }
