@@ -6,22 +6,34 @@ using namespace std;
 
 int main()
 {
-    char my_array[5][10] = {"Yamaha", "Honda", "Benz", "Tata", "Suzuki"};
+    // assign the array
+    char chArray[5][10] = {
+        "Yamaha",
+        "Honda",
+        "Benz",
+        "Tata",
+        "Suzuki"};
 
-    cout << my_array << endl;
+    // print base memory address
+    cout << "chArray = " << chArray << "\n";
 
+    // print each row values (words)
     for (int i = 0; i < 5; i++)
     {
-        cout << my_array[i] << endl;
+        cout << "chArray[" << i << "] = " << chArray[i] << "\n";
     }
 
+    // print each element
     for (int i = 0; i < 5; i++)
     {
         for (int j = 0; j < 10; j++)
         {
-            if (my_array[i][j] == '\0')
+            if (chArray[i][j] == '\0') // skip if NUL char
+            {
                 continue;
-            cout << my_array[i][j] << endl;
+            }
+
+            cout << "chArray[" << i << "][" << j << "] = " << chArray[i][j] << "\n";
         }
     }
 }

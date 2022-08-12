@@ -1,8 +1,10 @@
 {
     "files.associations": {
+        "*html": "html",
         "iostream": "cpp",
         "cmath": "cpp",
         "ostream": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "xutility": "cpp"
     }
 }

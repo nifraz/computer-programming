@@ -6,27 +6,31 @@ using namespace std;
 
 int main()
 {
-    string str;
-    cout << "Text with colon separated: ";
-    cin >> str;
+    cout << "Word Splitter & Uppercase\n"
+         << setfill('=') << setw(26) << "\n";
 
-    for (int i = 0; i < str.length(); i++)
+    //read text
+    cout << "Enter the text (seperate the words using ':' colon): \n";
+    string text;
+    cin >> text;
+
+    for (int i = 0; i < text.length(); i++)
     {
-        if (str[i] >= 97 && str[i] <= 122)
+        // check if char is between small case range
+        if (text[i] >= 'a' && text[i] <= 'z')
         {
-            str[i] = str[i] - 32;
+            text[i] -= 32; // deduct 32 to get the uppercase char
+        }
+
+        if (text[i] == ':') // check if char is colon
+        {
+            text[i] = '\n'; // replace with newline character (to split)
         }
     }
 
-    for (int i = 0; i < str.length(); i++)
-    {
-        if (str[i] == ':')
-        {
-            cout << endl;
-        }
-        else
-        {
-            cout << str[i];
-        }
-    }
+    // print results
+    cout << "\n"
+         << "Results\n"
+         << setfill('=') << setw(8) << "\n";
+    cout << text;
 }

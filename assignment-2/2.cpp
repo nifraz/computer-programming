@@ -6,30 +6,44 @@ using namespace std;
 
 int main()
 {
-    char s[1000];
-    cout << "User String: ";
-    cin.getline(s, 1000);
+    cout << "Word Counter\n"
+		 << setfill('=') << setw(13) << "\n";
 
-    int count = 0;
-    bool space = true;
+    const int MAX_CHARS = 1024;
 
-    for (int i = 0; i < 1000; i++)
+    //read the text
+    cout << "Enter the text (" << MAX_CHARS << " characters max): ";
+    char s[MAX_CHARS];
+    cin.getline(s, MAX_CHARS);
+
+    int wordCount = 0; //set wordCout to 0
+    
+    // variable to hold the flag if last char was space
+    // initially set to true, to start counting the first word
+    bool isInSpace = true; 
+
+    for (int i = 0; i < MAX_CHARS; i++)
     {
-        if (s[i] == '\0')
+        if (s[i] == '\0') //check if NUL character
         {
-            break;
+            break; //break the loop
         }
 
-        if (s[i] == ' ')
+        if (s[i] == ' ') //check if space
         {
-            space = true;
+            isInSpace = true; //set space flag
         }
-        else if (space)
+        //if not space AND the last character was space
+        else if (isInSpace)
         {
-            count = count + 1;
-            space = false;
+            wordCount++; //increment wordCount
+            isInSpace = false; //remove space flag
         }
     }
 
-    cout << "Words: " << count << endl;
+    // print results
+	cout << "\n"
+		 << "Results\n"
+		 << setfill('=') << setw(8) << "\n";
+    cout << "Your text contains " << wordCount << " words.";
 }
